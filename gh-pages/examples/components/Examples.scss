@@ -1,0 +1,46 @@
+#root {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-family: arial,tahoma;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .examples-container {
+    flex: 1;
+    padding: 25px;
+
+    h1 {
+      color: #336699;
+    }
+
+    fieldset {
+      padding: 25px;
+      font-size: 12px;
+      border: solid 1px #c3e2ee;
+    }
+
+    legend {
+      padding: 2px 8px;
+      color: #1c4f63;
+      font-size: 14px;
+      width: auto !important;
+      margin-bottom: auto;
+      border-bottom: 0;
+    }
+
+    label {
+      font-size: 14px;
+      color: #1c4f63;
+      margin-right: 4px;
+    }
+
+    button {
+      margin-right: 6px;
+      color: #1c4f63;
+    }
+  }
+}
