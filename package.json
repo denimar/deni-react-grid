@@ -3,9 +3,9 @@
   "version": "0.0.2",
   "description": "A cool data grid for React",
   "keywords": [],
-  "homepage": "github url here",
+  "homepage": "https://github.com/denimar/deni-react-grid",
   "bugs": {
-    "url": "issues url here",
+    "url": "https://github.com/denimar/deni-react-grid/issues",
     "email": "denimar@gmail.com"
   },
   "license": "MIT",
@@ -17,7 +17,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "github url here"
+    "url": "https://github.com/denimar/deni-react-grid"
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --config webpack/webpack.config.js",
@@ -60,6 +60,5 @@
     "create-react-class": "^15.6.2",
     "font-awesome": "^4.7.0",
     "react-syntax-highlighter": "^6.1.1"
-  },
-  "private": true
+  }
 }
