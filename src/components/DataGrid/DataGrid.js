@@ -39,7 +39,14 @@ class DataGrid extends React.Component {
   render() {
 
     return (
-      <div className={ 'ui-deni-grid' + (this.props.className ? ' ' + this.props.className : '') } ref="element">
+      <div
+        className={ 'ui-deni-grid' + (this.props.className ? ' ' + this.props.className : '') }
+        ref={
+          (elem) => {
+            this.element = elem;
+          }
+        }
+      >
         <div className='ui-deni-grid-wrapper'>
           <div className='ui-deni-grid-viewport'>
 
@@ -80,7 +87,7 @@ export default DataGrid;
 
 function _showDataGrid() {
   //
-  this.wrapper = this.refs.element.querySelector('.ui-deni-grid-wrapper');
+  this.wrapper = this.element.querySelector('.ui-deni-grid-wrapper');
   this.viewport = this.wrapper.querySelector('.ui-deni-grid-viewport');
   this.container = this.viewport.querySelector('.ui-deni-grid-container');
 
@@ -131,7 +138,7 @@ function _showDataGrid() {
   //Set the controller to the service of the events. Always there'll be one controller to eache uiDeniGridEventsService
   //uiDeniGridEventsService.setController(vm);
 
-  var currentHeight = this.refs.element.offsetHeight + 'px';
+  var currentHeight = this.element.offsetHeight + 'px';
   /*
   $timeout(function() {
   	if (this.element.css('height') != currentHeight) {
@@ -156,7 +163,7 @@ function _showDataGrid() {
 
   //Implement the ui-deni-grid's API
   let dataGridApi = new DataGridApi();
-  dataGridApi.implementApi(this, this.refs.element);
+  dataGridApi.implementApi(this, this.element);
 
   ///////////////////////////////////////////////////////////////////////////
   //FIXED COLUMNS ///////////////////////////////////////////////////////////
@@ -258,9 +265,9 @@ function _showDataGrid() {
   DataGridHelper.remakeHeightBodyViewportWrapper(this);
 
   if (this.props.options.data) {
-    this.refs.element.api.loadData(this.props.options.data);
+    this.element.api.loadData(this.props.options.data);
   } else if ((this.props.options.url) && (this.props.options.autoLoad)) {
-    this.refs.element.api.load();
+    this.element.api.load();
   }
 
   _checkSize(this);
@@ -271,10 +278,10 @@ function _showDataGrid() {
  *
  */
 function _checkSize(dataGrid) {
-  let isInvisible = ((dataGrid.refs.element.style.display === 'none') || (dataGrid.refs.element.style.visibility === 'hidden'));
+  let isInvisible = ((dataGrid.element.style.display === 'none') || (dataGrid.element.style.visibility === 'hidden'));
   if ((!isInvisible) && (dataGrid.props.options.data)) {
     DataGridHelper.adjustAllColumnWidtsAccordingColumnHeader(dataGrid);
-    dataGrid.refs.element.api.repaint();
+    dataGrid.element.api.repaint();
   }
 
   // angular.element(window).on('resize', function() {

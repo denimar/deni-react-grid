@@ -24,7 +24,7 @@ module.exports = {
   devServer: {
     contentBase: SOURCE_FOLDER,
     compress: true,
-    port: 3009,
+    port: 3012,
     hot: true,
     progress: true,
     open: true

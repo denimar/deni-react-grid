@@ -251,7 +251,7 @@ class DeniGridEventService {
           divCell.style.textAlign = column.align || 'left';
 
 					//Margin First column inside of grouping
-					if ((index === 0) && (this.dataGrid.refs.element.api.isGrouped())) {
+					if ((index === 0) && (this.dataGrid.element.api.isGrouped())) {
 						divCell.style.paddingLeft = '20px';
 					}
 
@@ -374,8 +374,8 @@ class DeniGridEventService {
                 let rowElement = Routine.getClosest(divCell, '.ui-row');
                 let rowIndex = parseInt(rowElement.getAttribute('rowindex'));
 
-                if (rowIndex !== this.dataGrid.refs.element.api.getSelectedRowIndex()) {
-                  this.dataGrid.refs.element.api.selectRow(rowIndex);
+                if (rowIndex !== this.dataGrid.element.api.getSelectedRowIndex()) {
+                  this.dataGrid.element.api.selectRow(rowIndex);
                 }
 
             //selType = 'cell'
@@ -386,7 +386,7 @@ class DeniGridEventService {
               let rowElement = Routine.getClosest(divCell, '.ui-row');
               let rowIndex = parseInt(rowElement.getAttribute('rowindex'));
 
-              this.dataGrid.refs.element.api.selectCell(rowIndex, colIndex);
+              this.dataGrid.element.api.selectCell(rowIndex, colIndex);
             }
 
           }
@@ -450,7 +450,7 @@ class DeniGridEventService {
   }
 
   bodyViewportScroll(event) {
-    let element = this.dataGrid.refs.element;
+    let element = this.dataGrid.element;
     var currentLeft = this.scrollLeft || 0;
 
     //Vertical Scroll

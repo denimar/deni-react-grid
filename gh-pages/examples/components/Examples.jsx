@@ -15,7 +15,7 @@ class Examples extends React.Component {
 
     return (
       <div>
-        <FixedColumnsWithRowNumber />
+        <BasicGrid />
       </div>
     )
 

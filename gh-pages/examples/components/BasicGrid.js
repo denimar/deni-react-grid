@@ -1,5 +1,5 @@
 import React from 'react';
-import DataGrid from '../../../src/components/DataGrid';
+import DataGrid from '../../../src/components';
 import './BasicGrid.scss';
 
 class BasicGrid extends React.Component {

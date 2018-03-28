@@ -11,7 +11,7 @@ plugins.push(new CleanWebpackPlugin([BUILD_FOLDER]));
 
 module.exports = {
   mode: 'production',
-  entry: SOURCE_FOLDER + '/components/index.js',
+  entry: SOURCE_FOLDER + '/components/DataGrid/DataGrid.js',
   output: {
     path: BUILD_FOLDER,
     filename: 'deni-react-grid.js',
@@ -21,7 +21,6 @@ module.exports = {
   module: {
     rules: loaders
   },
-  plugins: plugins,
   resolve: {
     extensions: ['.js', '.jsx']
   }

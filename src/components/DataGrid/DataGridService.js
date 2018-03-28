@@ -570,7 +570,7 @@ class DataGridService {
                     }
 
                     if (!headerContainerColumn.classList.contains('has-subcolumns')) {
-                      dataGrid.refs.element.api.sort({name: headerCell.getAttribute('name'), direction: direction});
+                      dataGrid.element.api.sort({name: headerCell.getAttribute('name'), direction: direction});
                     }
                   }
                 }
@@ -587,9 +587,9 @@ class DataGridService {
       dataGrid.headerContainer.querySelector('.ui-header-cell-dropdown').classList.remove('active clicked');
 
       if (execSortObj) {
-        dataGrid.refs.element.api.sort(execSortObj);
+        dataGrid.element.api.sort(execSortObj);
       } else if (column.filter && execFilter) {
-        dataGrid.refs.element.api.filter(dataGrid.scope.filterModel);
+        dataGrid.element.api.filter(dataGrid.scope.filterModel);
       }
     }
 
@@ -741,7 +741,7 @@ class DataGridService {
             //onselectionchange event
             ////////////////////////////////////////////////////
             if (dataGrid.props.options.listeners.onselectionchange) {
-              dataGrid.props.options.listeners.onselectionchange(dataGrid, dataGrid.refs.element, indexDataRecord, $(event.currentTarget).prop('record'));
+              dataGrid.props.options.listeners.onselectionchange(dataGrid, dataGrid.element, indexDataRecord, $(event.currentTarget).prop('record'));
             }
             ////////////////////////////////////////////////////
             ////////////////////////////////////////////////////
@@ -899,7 +899,7 @@ class DataGridService {
       var sortersArray;
 
       //GROUPING
-      if (dataGrid.refs.element.api.isGrouped()) {
+      if (dataGrid.element.api.isGrouped()) {
         sortersArray = this._sort(dataGrid, sorters);
 
         //
@@ -927,12 +927,12 @@ class DataGridService {
         sortersArray = this._sort(dataGrid, sorters);
 
         //
-        dataGrid.refs.element.api.loadData(dataGrid.props.options.data);
+        dataGrid.element.api.loadData(dataGrid.props.options.data);
 
         for (let index = 0 ; index < recordsToExpand.length ; index++) {
           var record = recordsToExpand[index];
-          var rowIndex = dataGrid.refs.element.api.resolveRowIndex(record);
-          var rowElement = dataGrid.refs.element.api.resolveRowElement(rowIndex);
+          var rowIndex = dataGrid.element.api.resolveRowIndex(record);
+          var rowElement = dataGrid.element.api.resolveRowElement(rowIndex);
 
           DataGridHelper.rowDetailsExpand(dataGrid, rowElement, record, rowIndex);
         }
@@ -943,7 +943,7 @@ class DataGridService {
         sortersArray = this._sort(dataGrid, sorters);
 
         //
-        dataGrid.refs.element.api.loadData(dataGrid.props.options.data);
+        dataGrid.element.api.loadData(dataGrid.props.options.data);
       }
 
 
@@ -959,7 +959,7 @@ class DataGridService {
       }
 
       //Call ui-deni-view method sort
-      //dataGrid.refs.element.api.sort(sortersArray);
+      //dataGrid.element.api.sort(sortersArray);
 
       if (recordToHold) {
         this.selectRow(dataGrid, recordToHold);
@@ -1060,7 +1060,7 @@ class DataGridService {
      *
      */
     isRowSelected(dataGrid, row) {
-      var rowElement = dataGrid.refs.element.api.resolveRowElement(row);
+      var rowElement = dataGrid.element.api.resolveRowElement(row);
       return rowElement && rowElement.classList.contains('selected');
     }
 
@@ -1114,16 +1114,16 @@ class DataGridService {
             var rowIndex;
 
             //
-            if (dataGrid.refs.element.api.isGrouped()) {
+            if (dataGrid.element.api.isGrouped()) {
               //
-              rowIndex = dataGrid.refs.element.api.resolveRowIndex(row);
+              rowIndex = dataGrid.element.api.resolveRowIndex(row);
             //
             } else {
-              rowIndex = dataGrid.refs.element.api.resolveRowIndex(row);
+              rowIndex = dataGrid.element.api.resolveRowIndex(row);
             }
 
             //
-            //var rowElement = dataGrid.refs.element.api.resolveRowElement(row);
+            //var rowElement = dataGrid.element.api.resolveRowElement(row);
 
             //
             scrollIntoView = (scrollIntoView === false ? false : true);
@@ -1136,7 +1136,7 @@ class DataGridService {
             //
             let scrollIntoViewFn = function(rowElementToScroll) {
               if (scrollIntoView) {
-                //if (!dataGrid.refs.element.api.isRowVisible(rowElementToScroll)) {
+                //if (!dataGrid.element.api.isRowVisible(rowElementToScroll)) {
                 //	rowElementToScroll.get(0).scrollIntoView(false);
                 //}
               }
@@ -1149,7 +1149,7 @@ class DataGridService {
             } else {
               dataGrid.rowIndex = rowIndex;
 
-              if (dataGrid.refs.element.api.isGrouped()) {
+              if (dataGrid.element.api.isGrouped()) {
                 let itemRow = dataGrid.managerRendererItems.getInfoRow(rowIndex);
                 if (!itemRow) {
                   let groupIndex = dataGrid.props.options.data[rowIndex].groupIndex;
@@ -1180,7 +1180,7 @@ class DataGridService {
           //
           if ((dataGrid.rowIndex !== undefined) && (!dataGrid.props.options.multiSelect)) {
             //remove all selections
-            dataGrid.refs.element.api.clearSelections();
+            dataGrid.element.api.clearSelections();
           }
 
           //
@@ -1214,7 +1214,7 @@ class DataGridService {
           ////////////////////////////////////////////////////
           if (!preventOnSelectionChange) {
             if (dataGrid.props.options.listeners.onselectionchange) {
-              dataGrid.props.options.listeners.onselectionchange(dataGrid, dataGrid.refs.element, dataGrid.rowIndex, dataGrid.props.options.data[dataGrid.rowIndex]);
+              dataGrid.props.options.listeners.onselectionchange(dataGrid, dataGrid.element, dataGrid.rowIndex, dataGrid.props.options.data[dataGrid.rowIndex]);
             }
           }
           ////////////////////////////////////////////////////
@@ -1238,7 +1238,7 @@ class DataGridService {
           scrollIntoView = (scrollIntoView === false ? false : true);
 
           //
-          var rowElement = dataGrid.refs.element.api.resolveRowElement(row);
+          var rowElement = dataGrid.element.api.resolveRowElement(row);
         //
         if (row.length === 0) {
           throw new Error('selectCell: row passed in a wrong way!');
@@ -1252,13 +1252,13 @@ class DataGridService {
 
         if (!dataGrid.props.options.multiSelect) {
           //remove all selections
-          dataGrid.refs.element.api.clearSelections();
+          dataGrid.element.api.clearSelections();
         }
 
         divCell.classList.add('selected');
 
           //
-          var rowIndex = dataGrid.refs.element.api.resolveRowIndex(row);
+          var rowIndex = dataGrid.element.api.resolveRowIndex(row);
         dataGrid.rowIndex = rowIndex;
         dataGrid.colIndex = colIndex;
       }
@@ -1331,7 +1331,7 @@ class DataGridService {
      *
     */
     updateCell(dataGrid, rowIndex, colIndex, value) {
-      var rowElement = dataGrid.refs.element.api.resolveRowElement(rowIndex);
+      var rowElement = dataGrid.element.api.resolveRowElement(rowIndex);
       var divCell = rowElement.querySelector('.ui-cell[colIndex=' + colIndex + ']');
       var spanCellInner = divCell.querySelector('.ui-cell-inner');
       spanCellInner.innerHTML = value;
@@ -1635,7 +1635,7 @@ class DataGridService {
                 dataGrid.props.options.paging.pageCount = Math.ceil(dataGrid.props.options.paging.dataLength / dataGrid.props.options.paging.pageSize);
 
                 //
-                dataGrid.refs.element.api.loadData(responseData[dataGrid.props.options.restConfig.data]);
+                dataGrid.element.api.loadData(responseData[dataGrid.props.options.restConfig.data]);
                 sucessFn(responseData[dataGrid.props.options.restConfig.data]);
 
                 //
@@ -1655,7 +1655,7 @@ class DataGridService {
 
               } else {
                 //
-                dataGrid.refs.element.api.loadData(responseData[dataGrid.props.options.restConfig.data]);
+                dataGrid.element.api.loadData(responseData[dataGrid.props.options.restConfig.data]);
                 sucessFn(responseData[dataGrid.props.options.restConfig.data]);
               }
 
@@ -1807,7 +1807,7 @@ class DataGridService {
       //
       //
       // GROUPING
-      if (dataGrid.refs.element.api.isGrouped()) {
+      if (dataGrid.element.api.isGrouped()) {
         var expressionToGroup = dataGrid.props.options.grouping.expr;
 
         var getEvalFieldValue = function(record, fieldName) {
@@ -1849,7 +1849,7 @@ class DataGridService {
         };
         */
 
-        //dataGrid.refs.element.api.sort(sortGroupingFn);
+        //dataGrid.element.api.sort(sortGroupingFn);
         //dataGrid.props.options.data = $filter('orderBy')(dataGrid.props.options.data, expressionToGroup);
 
         let resolveNesdedProperty = (path, obj) => {
@@ -1931,9 +1931,9 @@ class DataGridService {
 
       if (dataGrid.props.options.data.length > 0) {
         if (dataGrid.props.options.selType === 'row') {
-          dataGrid.refs.element.api.selectRow(0, false, false);
+          dataGrid.element.api.selectRow(0, false, false);
         } else {
-          dataGrid.refs.element.api.selectCell(0, 0, false, false);
+          dataGrid.element.api.selectCell(0, 0, false, false);
         }
       }
 
@@ -2085,13 +2085,13 @@ class DataGridService {
         };
 
         var selectAndRemoveRendered = function(record, preventSelectionChange, scrollIntoView) {
-          dataGrid.refs.element.api.selectRow(record, preventSelectionChange, scrollIntoView);
-          var rowElement = dataGrid.refs.element.api.resolveRowElement(record);
+          dataGrid.element.api.selectRow(record, preventSelectionChange, scrollIntoView);
+          var rowElement = dataGrid.element.api.resolveRowElement(record);
           rowElement.setAttribute('rendered', false);
         };
 
         //remove all selections
-        dataGrid.refs.element.api.clearSelections();
+        dataGrid.element.api.clearSelections();
         if (Array.isArray(recordsFound)) {
           //multiSelect
           if (dataGrid.props.options.multiSelect) {
@@ -2163,11 +2163,11 @@ class DataGridService {
 
       //remote filter
       if (dataGrid.props.options.filter && dataGrid.props.options.filter.remote) {
-        dataGrid.refs.element.api.reload();
+        dataGrid.element.api.reload();
 
       //local filter
       } else {
-        dataGrid.refs.element.api.loadData(dataGrid.props.options.alldata);
+        dataGrid.element.api.loadData(dataGrid.props.options.alldata);
       }
     }
 
@@ -2299,14 +2299,14 @@ class DataGridService {
         rowDetailsBox.classList.add('row-detail-box');
         rowElement.append(rowDetailsBox);
 
-        rowElementParent = dataGrid.refs.element.api.resolveRowElement(itemToRender.rowIndex);
+        rowElementParent = dataGrid.element.api.resolveRowElement(itemToRender.rowIndex);
 
         rowElement.style.height = itemToRender.height + 'px';
         rowElement.style.top = itemToRender.top + 'px';
         rowElement.insertAfter(rowElementParent);
 
         rowElement.click(function() {
-          dataGrid.refs.element.api.selectRow(rowElementParent);
+          dataGrid.element.api.selectRow(rowElementParent);
         });
 
         itemToRender.rowElement = rowElement;
@@ -2444,7 +2444,7 @@ class DataGridService {
      *
      */
     repaintRow(dataGrid, row) {
-      var rowIndex = dataGrid.refs.element.api.resolveRowIndex(row);
+      var rowIndex = dataGrid.element.api.resolveRowIndex(row);
       this._repaintRow(dataGrid, rowIndex, true, true);
     }
 
@@ -2479,8 +2479,8 @@ class DataGridService {
      *
      */
     removeRow(dataGrid, row) {
-      var rowIndexToDelete = dataGrid.refs.element.api.resolveRowIndex(row);
-      var currentRowIndex = dataGrid.refs.element.api.getSelectedRowIndex();
+      var rowIndexToDelete = dataGrid.element.api.resolveRowIndex(row);
+      var currentRowIndex = dataGrid.element.api.getSelectedRowIndex();
       var deletingCurrentRow = rowIndexToDelete === currentRowIndex;
 
       dataGrid.managerRendererItems.removeRow(dataGrid, rowIndexToDelete);
@@ -2493,7 +2493,7 @@ class DataGridService {
           if (rowIndexToSelect > rowIndexToDelete) {
             rowIndexToSelect--;
           }
-          dataGrid.refs.element.api.selectRow(rowIndexToSelect, false, false);
+          dataGrid.element.api.selectRow(rowIndexToSelect, false, false);
         }
       }
     }
@@ -2554,9 +2554,9 @@ class DataGridService {
       dataGrid.enabled = enabled;
 
       if (enabled) {
-        dataGrid.refs.element.classList.remove('disabled');
+        dataGrid.element.classList.remove('disabled');
       } else {
-        dataGrid.refs.element.classList.add('disabled');
+        dataGrid.element.classList.add('disabled');
       }
     }
 

@@ -22,7 +22,7 @@ class ManagerRendererItems {
     var top = 0;
 
     //
-    if (this.dataGrid.refs.element.api.isGrouped()) {
+    if (this.dataGrid.element.api.isGrouped()) {
       for (let index = 0 ; index < this.dataGrid.props.options.dataGroup.length ; index++) {
 
         //

@@ -718,7 +718,7 @@ class DataGridHelper {
 			buttonFirst.classList.add('disabled');
       paging.appendChild(buttonFirst);
       buttonFirst.addEventListener('click', () => {
-        dataGrid.refs.element.api.setPageNumber(1);
+        dataGrid.element.api.setPageNumber(1);
       });
 
 			//Previous Page Button
@@ -728,7 +728,7 @@ class DataGridHelper {
 			buttonPrev.classList.add('disabled');
 			paging.appendChild(buttonPrev);
       buttonPrev.addEventListener('click', () => {
-        dataGrid.refs.element.api.setPageNumber(dataGrid.refs.element.api.getPageNumber() - 1);
+        dataGrid.element.api.setPageNumber(dataGrid.element.api.getPageNumber() - 1);
       });
 
 			//
@@ -756,7 +756,7 @@ class DataGridHelper {
 					} else if (pageNumber > dataGrid.props.options.paging.pageCount) {
 						pageNumber = dataGrid.props.options.paging.pageCount;
 					}
-					dataGrid.refs.element.api.setPageNumber(pageNumber);
+					dataGrid.element.api.setPageNumber(pageNumber);
 					inputPageNumber.focus();
           inputPageNumber.setSelectionRange(0, inputPageNumber.value.length);
 				}
@@ -783,7 +783,7 @@ class DataGridHelper {
 			buttonNext.classList.add('disabled');
 			paging.appendChild(buttonNext);
       buttonNext.addEventListener('click', () => {
-        dataGrid.refs.element.api.setPageNumber(dataGrid.refs.element.api.getPageNumber() + 1);
+        dataGrid.element.api.setPageNumber(dataGrid.element.api.getPageNumber() + 1);
       });
 
 			//
@@ -793,7 +793,7 @@ class DataGridHelper {
 			buttonLast.classList.add('disabled');
 			paging.appendChild(buttonLast);
       buttonLast.addEventListener('click', () => {
-        dataGrid.refs.element.api.setPageNumber(dataGrid.props.options.paging.pageCount);
+        dataGrid.element.api.setPageNumber(dataGrid.props.options.paging.pageCount);
       });
 
 			//
@@ -807,7 +807,7 @@ class DataGridHelper {
 			refreshButton.classList.add('button-refresh');
 			paging.appendChild(refreshButton);
       refreshButton.addEventListener('click', () => {
-        dataGrid.refs.element.api.reload();
+        dataGrid.element.api.reload();
       });
 
 			//
@@ -989,7 +989,7 @@ class DataGridHelper {
 
 				//
 				dataGrid.managerRendererItems.insertChildrenGroup(groupIndex, childrenIndexes);
-				dataGrid.refs.element.api.repaint();
+				dataGrid.element.api.repaint();
 			}
 		};
 
