@@ -9,6 +9,7 @@
     "email": "denimar@gmail.com"
   },
   "license": "MIT",
+  "main": "build/deni-react-grid.js",
   "author": {
     "name": "Denimar de Moraes",
     "email": "denimar@gmail.com",
