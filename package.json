@@ -1,6 +1,6 @@
 {
   "name": "deni-react-grid",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A cool data grid for React",
   "keywords": [],
   "homepage": "https://github.com/denimar/deni-react-grid",
@@ -9,13 +9,12 @@
     "email": "denimar@gmail.com"
   },
   "license": "MIT",
-  "main": "build/deni-react-grid.js",
+  "main": "index.js",
   "author": {
     "name": "Denimar de Moraes",
     "email": "denimar@gmail.com",
     "url": "github.com/denimar"
   },
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/denimar/deni-react-grid"
