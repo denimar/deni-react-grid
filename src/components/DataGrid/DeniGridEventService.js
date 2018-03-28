@@ -198,15 +198,15 @@ class DeniGridEventService {
 
 
 					} else {
-						imgActionColumn = $(document.createElement('img'));
+						imgActionColumn = document.createElement('img');
 						imgActionColumn.setAttribute('src', iconActionColumn);
 						imgActionColumn.setAttribute('title', column.action.tooltip);
 						spanCellInner.appendChild(imgActionColumn);
-						imgActionColumn.prop('column', column);
+						imgActionColumn['column'] = column;
 
-						imgActionColumn.click(function(event) {
-							let imgAction = $(event.currentTarget);
-							let colAction = imgAction.prop('column');
+						imgActionColumn.addEventListener('click', event => {
+							let imgAction = event.currentTarget;
+							let colAction = imgAction['column'];
 							colAction.action.fn(record, column, imgActionColumn);
 						});
 

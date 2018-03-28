@@ -4,6 +4,7 @@ import Pagging2 from './Pagging2'
 import RemoteJSON from './RemoteJSON'
 import Grouping from './Grouping'
 import FixedColumnsWithRowNumber from './FixedColumnsWithRowNumber'
+import ActionColumn from './ActionColumn'
 
 class Examples extends React.Component {
 
@@ -15,7 +16,7 @@ class Examples extends React.Component {
 
     return (
       <div>
-        <BasicGrid />
+        <ActionColumn />
       </div>
     )
 
