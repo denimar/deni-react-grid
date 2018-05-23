@@ -4,6 +4,10 @@ import './BasicGrid.scss';
 
 class BasicGrid extends React.Component {
 
+  _onTestingClick() {
+    this.grid.api.removeSelectedRows()
+  }
+
   gridOptions() {
     return {
       columns: [
@@ -56,7 +60,13 @@ class BasicGrid extends React.Component {
 
   render() {
     return (
-      <DataGrid className="basic-grid" options={ this.gridOptions() } />
+      <div>
+        <button onClick={ this._onTestingClick.bind(this) }>Testing</button>
+        <DataGrid 
+          ref={ elem => { this.grid = elem } }
+          className="basic-grid" options={ this.gridOptions() } 
+        />
+      </div>
     );
   }
 }

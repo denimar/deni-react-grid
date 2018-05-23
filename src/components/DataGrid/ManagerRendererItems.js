@@ -119,8 +119,8 @@ class ManagerRendererItems {
     }
 
     var rowsContainerHeight = this.items[this.items.length - 1].top + this.rowHeight;
-    dataGrid.bodyContainer.height(rowsContainerHeight);
-    dataGrid.fixedColsBodyContainer.height(rowsContainerHeight);
+    dataGrid.bodyContainer.style.height = rowsContainerHeight + 'px'
+    dataGrid.fixedColsBodyContainer.style.height = rowsContainerHeight + 'px'
   }
 
   //
@@ -161,8 +161,8 @@ class ManagerRendererItems {
     }
 
     var rowsContainerHeight = this.items[this.items.length - 1].top + this.rowHeight;
-    this.dataGrid.bodyContainer.height(rowsContainerHeight);
-    this.dataGrid.fixedColsBodyContainer.height(rowsContainerHeight);
+    this.dataGrid.bodyContainer.style.height = rowsContainerHeight + 'px'
+    this.dataGrid.fixedColsBodyContainer.style.height = rowsContainerHeight + 'px'
   }
 
   //
@@ -194,8 +194,8 @@ class ManagerRendererItems {
     }
 
     var rowsContainerHeight = this.items[this.items.length - 1].top + this.rowHeight;
-    this.dataGrid.bodyContainer.height(rowsContainerHeight);
-    this.dataGrid.fixedColsBodyContainer.height(rowsContainerHeight);
+    this.dataGrid.bodyContainer.style.height = rowsContainerHeight + 'px'
+    this.dataGrid.fixedColsBodyContainer.style.height = rowsContainerHeight + 'px'
   }
 
   //
@@ -235,7 +235,7 @@ class ManagerRendererItems {
 
     var rowsContainerHeight = this.items[this.items.length - 1].top + this.rowHeight;
     this.dataGrid.bodyContainer.style.height = rowsContainerHeight + 'px';
-    this.dataGrid.fixedColsBodyContainer.style.height = rowsContainerHeight + 'px';
+    this.dataGrid.fixedColsBodyContainer.style.height = rowsContainerHeight + 'px'
   }
 
   //
@@ -276,8 +276,8 @@ class ManagerRendererItems {
     }
 
     var rowsContainerHeight = this.items[this.items.length - 1].top + this.rowHeight;
-    this.dataGrid.bodyContainer.height(rowsContainerHeight);
-    this.dataGrid.fixedColsBodyContainer.height(rowsContainerHeight);
+    this.dataGrid.bodyContainer.style.height = rowsContainerHeight + 'px'
+    this.dataGrid.fixedColsBodyContainer.style.height = rowsContainerHeight + 'px'
   }
 
 

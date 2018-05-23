@@ -1081,11 +1081,11 @@ class DataGridService {
       var rowIndexes = [];
 
       //
-      var selectedRows = dataGrid.bodyViewport.querySelector('.ui-row.selected');
+      var selectedRows = dataGrid.bodyViewport.querySelectorAll('.ui-row.selected')
 
       //
       for (let index = 0 ; index < selectedRows.length ; index++) {
-        rowIndexes.push(parseInt($(selectedRows[index]).setAttribute('rowindex')));
+        rowIndexes.push(parseInt(selectedRows[index].getAttribute('rowindex')))
       }
 
       return rowIndexes;
