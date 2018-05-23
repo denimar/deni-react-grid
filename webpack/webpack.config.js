@@ -11,6 +11,7 @@ module.exports = {
     path: SOURCE_FOLDER,
     filename: 'bundle.js'
   },
+  devtool: 'source-maps',
   module: {
     rules: loaders
   },

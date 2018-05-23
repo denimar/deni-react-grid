@@ -3,8 +3,9 @@ import DataGridService from './DataGridService';
 class DataGridApi {
 
   implementApi(dataGrid, element) {
-    let dataGridService = new DataGridService(dataGrid);
-    element.api = this._getApi(dataGrid, dataGridService);
+    let dataGridService = new DataGridService(dataGrid)
+    element.api = this._getApi(dataGrid, dataGridService)
+    dataGrid.api = element.api
   }
 
   _getApi(dataGrid, dataGridService) {

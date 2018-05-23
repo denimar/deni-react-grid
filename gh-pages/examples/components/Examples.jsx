@@ -16,7 +16,7 @@ class Examples extends React.Component {
 
     return (
       <div>
-        <ActionColumn />
+        <BasicGrid />
       </div>
     )
 
