@@ -2490,7 +2490,7 @@ class DataGridService {
       if (dataGrid.props.options.data.length > 0) {
         if (currentRowIndex !== -1) {
           var rowIndexToSelect = currentRowIndex;
-          if (rowIndexToSelect > rowIndexToDelete) {
+          if (rowIndexToSelect >= rowIndexToDelete) {
             rowIndexToSelect--;
           }
           dataGrid.element.api.selectRow(rowIndexToSelect, false, false);

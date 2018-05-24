@@ -93,6 +93,13 @@ class DataGridApi {
         return dataGridService.getColumn(dataGrid, fieldName);
       },
 
+      /**
+       *
+       *
+       */
+      getData: function() {
+        return dataGrid.props.options.data
+      },      
 
       /**
        *
