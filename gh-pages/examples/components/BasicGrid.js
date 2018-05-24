@@ -4,7 +4,15 @@ import './BasicGrid.scss';
 
 class BasicGrid extends React.Component {
 
-  _onTestingClick() {
+  _updateSelectedRow() {
+    this.grid.api.updateSelectedRow({
+      name: 'Denimar',
+      age: 42
+    })
+    this.grid.api.repaint()
+  }
+
+  _removeSelectedRows() {
     this.grid.api.removeSelectedRows()
   }
 
@@ -61,7 +69,9 @@ class BasicGrid extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={ this._onTestingClick.bind(this) }>Testing</button>
+        <button onClick={ this._updateSelectedRow.bind(this) }>updateSelectedRow</button>
+        <button onClick={ this._removeSelectedRows.bind(this) }>removeSelectedRows</button>        
+        
         <DataGrid 
           ref={ elem => { this.grid = elem } }
           className="basic-grid" options={ this.gridOptions() } 
